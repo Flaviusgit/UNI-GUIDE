@@ -21,7 +21,7 @@ const path = useLocation().pathname;
         rightIcon = {AiOutlineSearch}
         className = 'hidden lg:inline'
         />
-      </form>
+      </form >
       <Button className = 'w-12 h-10 lg:hidden' color = 'gray' pill> 
         <AiOutlineSearch/>
       </Button>

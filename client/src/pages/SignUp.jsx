@@ -29,7 +29,7 @@ export default function SignUp() {
       if (data.success === false) {
         return setErrorMessage(data.message);
       }
-      setLoading(true); // Activate the spinner again for a moment
+      setLoading(true); 
       if (res.ok) {
         navigate('/sign-in');
       }
@@ -37,8 +37,8 @@ export default function SignUp() {
       setErrorMessage(error.message);
     } finally {
       setTimeout(() => {
-        setLoading(false); // Stop the spinner after a few seconds
-      }, 3000); // Change the value (3000 milliseconds = 3 seconds)
+        setLoading(false); 
+      }, 3000); 
     }
   };
 
@@ -49,7 +49,7 @@ export default function SignUp() {
         <div className='flex-1'>
           <Link to='/' className='font-bold dark:text-white text-4xl'>
             <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
-              Sahand's
+              Flavius's
             </span>
             Blog
           </Link>

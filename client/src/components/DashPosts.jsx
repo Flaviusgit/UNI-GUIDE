@@ -1,18 +1,16 @@
-import { Table, Modal, Button } from 'flowbite-react';
-import React, { useEffect, useState } from 'react'
-import {useSelector} from 'react-redux';
+import { Modal, Table, Button } from 'flowbite-react';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {HiOutlineExclamationCircle} from 'react-icons/hi'
-
-
-
+import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import { set } from 'mongoose';
 
 export default function DashPosts() {
-  const {currentUser} = useSelector((state) => state.user)
+  const { currentUser } = useSelector((state) => state.user);
   const [userPosts, setUserPosts] = useState([]);
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const[postIdToDelete,setPostIdToDelete] = useState('');
+  const [postIdToDelete, setPostIdToDelete] = useState('');
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -50,6 +48,7 @@ export default function DashPosts() {
       console.log(error.message);
     }
   };
+
   const handleDeletePost = async () => {
     setShowModal(false);
     try {
@@ -71,6 +70,7 @@ export default function DashPosts() {
       console.log(error.message);
     }
   };
+
   return (
     <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
       {currentUser.isAdmin && userPosts.length > 0 ? (
@@ -87,7 +87,7 @@ export default function DashPosts() {
             </Table.HeadCell>
           </Table.Head>
           {userPosts.map((post) => (
-            <Table.Body className = 'divide-y'>
+            <Table.Body key={post._id} className = 'divide-y'>
               <Table.Row className = 'bg-white dark:border-gray-700 dark:bg-gray-800'>
                 <Table.Cell>{new Date(post.updatedAt).toLocaleDateString()}</Table.Cell>
                 <Table.Cell>
@@ -102,7 +102,7 @@ export default function DashPosts() {
                   <Link className = 'font-medium text-gray-900 dark:text-white'to={`/post/${post.slug}`}>{post.title}
                   </Link>
                 </Table.Cell>
-                <Table.Cell>{post.category}</Table.Cell>
+                 <Table.Cell>{post.category}</Table.Cell>
                 <Table.Cell>
                   <span onClick ={()=>{
                     setShowModal(true);
@@ -111,7 +111,8 @@ export default function DashPosts() {
                                      
                 </Table.Cell>
                 <Table.Cell>
-                  <Link className = 'text-teal-500 hover:underline 'to = {`update-post/${post._id}`}>
+                  <Link className = 'text-teal-500 hover:underline 'to={`/update-post/${post._id}`}>
+                                                                      
                   <span>Edit</span>
                   </Link>
                 </Table.Cell>

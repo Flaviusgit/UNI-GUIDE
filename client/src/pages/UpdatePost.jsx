@@ -25,27 +25,29 @@ export default function UpdatePost() {
   const navigate = useNavigate();
     const { currentUser } = useSelector((state) => state.user);
 
-  useEffect(() => {
-    try {
-      const fetchPost = async () => {
-        const res = await fetch(`/api/post/getposts?postId=${postId}`);
-        const data = await res.json();
-        if (!res.ok) {
-          console.log(data.message);
-          setPublishError(data.message);
-          return;
-        }
-        if (res.ok) {
-          setPublishError(null);
-          setFormData(data.posts[0]);
-        }
-      };
+useEffect(() => {
+  try {
+    const fetchPost = async () => {
+      const res = await fetch(`/api/post/getposts?postId=${postId}`);
+      const data = await res.json();
+      if (!res.ok) {
+        console.log(data.message);
+        setPublishError(data.message);
+        return;
+      }
+      if (res.ok) {
+        setPublishError(null);
+        const fetchedPost = data.posts[0];
+        setFormData({ ...fetchedPost, _id: fetchedPost._id });
+      }
+    };
 
-      fetchPost();
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, [postId]);
+    fetchPost();
+  } catch (error) {
+    console.log(error.message);
+  }
+}, [postId]);
+
 
   const handleUpdloadImage = async () => {
     try {
@@ -130,9 +132,9 @@ export default function UpdatePost() {
             value={formData.category}
           >
             <option value='uncategorized'>Select a category</option>
-            <option value='javascript'>JavaScript</option>
-            <option value='reactjs'>React.js</option>
-            <option value='nextjs'>Next.js</option>
+            <option value='javascript'>Math</option>
+            <option value='reactjs'>C programming.js</option>
+            <option value='nextjs'>Physics</option>
           </Select>
         </div>
         <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>

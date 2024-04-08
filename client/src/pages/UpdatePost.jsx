@@ -132,9 +132,9 @@ useEffect(() => {
             value={formData.category}
           >
             <option value='uncategorized'>Select a category</option>
-            <option value='javascript'>Math</option>
-            <option value='reactjs'>C programming.js</option>
-            <option value='nextjs'>Physics</option>
+            <option value='Math'>Math</option>
+            <option value='C programming'>C-programming</option>
+            <option value='Javascript'>Javascript</option>
           </Select>
         </div>
         <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>

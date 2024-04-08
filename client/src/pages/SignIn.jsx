@@ -45,10 +45,10 @@ export default function SignIn() {
         {/* left */}
         <div className='flex-1'>
           <Link to='/' className='font-bold dark:text-white text-4xl'>
-            <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
-              Flavius's
+          RoadTo
+          <span className='px-1 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
+              UPT
             </span>
-            Blog
           </Link>
           <p className='text-sm mt-5'>
             You can sign in with your email and password or with Google.

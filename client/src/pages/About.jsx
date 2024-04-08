@@ -4,11 +4,11 @@ export default function About() {
       <div className='max-w-2xl mx-auto p-3 text-center'>
         <div>
           <h1 className='text-3xl font font-semibold text-center my-7'>
-            About Flavius' Blog
+            About RoadToUPT
           </h1>
           <div className='text-md text-gray-500 flex flex-col gap-6'>
             <p>
-              Welcome to Flavius's Blog! This blog was created by Flavius Carpean
+              Welcome to RoadToUPT Blog! This  was created by Flavius Carpean
               as a personal project to share his thoughts and ideas with the
               world. Flavius is a passionate developer who loves to write about
               technology, coding, and everything in between.

@@ -34,6 +34,7 @@ export const updateUser = async (req, res, next) => {
       );
     }
   }
+  
   try {
     const updatedUser = await User.findByIdAndUpdate(
       req.params.userId,

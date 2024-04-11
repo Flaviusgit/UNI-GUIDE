@@ -15,6 +15,7 @@ import UpdatePost from './pages/UpdatePost'
 import PostPage from './pages/PostPage'
 import ScrollToTop from './components/ScrollToTop'
 import Search from './pages/Search'
+import Quiz from './pages/Quiz'
 
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
       <Route path = "/sign-up" element = {<SignUp />}/>
       <Route path = "/search" element = {<Search />}/>
       <Route path = "/projects" element = {<Projects />}/>
+      <Route path = "/quiz" element = {<Quiz/>}/>
       <Route element = {<PrivateRoute/>}>
         <Route path = "/dashboard" element = {<Dashboard/>}/>
       </Route>

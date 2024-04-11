@@ -125,6 +125,11 @@ const handleSubmit = (e) => {
               Projects
             </Link>
           </Navbar.Link>
+          <Navbar.Link active = {path === "/quiz"}as = {'div'}>
+            <Link to = '/quiz'>
+              Quiz
+            </Link>
+          </Navbar.Link>
         </Navbar.Collapse>
     </Navbar>
   )

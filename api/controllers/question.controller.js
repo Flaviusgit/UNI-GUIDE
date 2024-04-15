@@ -3,12 +3,12 @@ import Question from '../models/question.model.js';
 
 export const getQuestion = async (req, res, next) => {
     try {
-        const count = await Question.countDocuments();
-        const randomIndex = Math.floor(Math.random() * count);
-        const question = await Question.findOne().skip(randomIndex);
-        res.status(200).json(question);
+        const questions = await Question.aggregate([
+            { $sample: { size: 12 } }
+        ]);
+        res.status(200).json(questions);
     } catch (error) {
-        next(error); 
+        next(error);
     }
 };
 

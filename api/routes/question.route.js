@@ -6,4 +6,4 @@ const router = express.Router();
 router.get('/getQuestion', getQuestion);
 router.post('/addQuestion', addQuestion);
 
-export default router;
+export default router; 

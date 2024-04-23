@@ -119,10 +119,10 @@ export default function DashUsers() {
               className='w-full text-teal-500 self-center text-sm py-7'
             >
               Show more
-            </button>
-          )}
+            </button> 
+          )} 
         </>
-      ) : (
+      ) : ( 
         <p>You have no users yet!</p>
       )}
       <Modal

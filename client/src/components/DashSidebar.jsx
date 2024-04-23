@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Sidebar} from 'flowbite-react'
-import {HiArrowSmRight, HiUser, HiAnnotation,HiDocumentText,HiOutlineUserGroup, HiChartPie} from 'react-icons/hi'
+import {HiArrowSmRight, HiUser, HiAnnotation,HiDocumentText,HiOutlineUserGroup, HiChartPie,HiOutlineQuestionMarkCircle} from 'react-icons/hi'
 import { Link, useLocation } from 'react-router-dom';
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -90,8 +90,15 @@ export default function DashSidebar() {
                     Comments
                   </Sidebar.Item>
                 </Link>
-                
-                
+                <Link to = '/dashboard?tab=questions'>
+                  <Sidebar.Item
+                  active = {tab === 'questions'}
+                  icon = {HiOutlineQuestionMarkCircle}
+                  as = 'div'
+                  >
+                    Questions
+                  </Sidebar.Item>
+                </Link>
                 </>
                 
               )

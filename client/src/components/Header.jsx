@@ -28,6 +28,7 @@ useEffect(() => {
 }, [location.search]);
 
 
+
 const handleSignout = async () => {
   try {
     const res = await fetch('/api/user/signout', {
@@ -50,6 +51,9 @@ const handleSubmit = (e) => {
   const searchQuery = urlParams.toString();
   navigate(`/search?${searchQuery}`);
 };
+
+
+
   return (
     <Navbar className = 'border-b-2'>
       <Link to = "/" className = 'self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
@@ -131,6 +135,8 @@ const handleSubmit = (e) => {
             </Link>
           </Navbar.Link>
         </Navbar.Collapse>
+   
     </Navbar>
+    
   )
 }

@@ -19,6 +19,9 @@ export default function Search() {
 
   const navigate = useNavigate();
 
+  
+  
+
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get('searchTerm');

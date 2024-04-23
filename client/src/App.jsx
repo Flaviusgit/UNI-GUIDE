@@ -16,6 +16,9 @@ import PostPage from './pages/PostPage'
 import ScrollToTop from './components/ScrollToTop'
 import Search from './pages/Search'
 import Quiz from './pages/Quiz'
+import CreateQuestion from './pages/CreateQuestion'
+import EditQuestion from './pages/EditQuestion'
+
 
 
 export default function App() {
@@ -37,6 +40,8 @@ export default function App() {
       <Route element = {<OnlyAdminPrivateRoute/>}>
         <Route path = "/create-post" element = {<CreatePost/>}/>
         <Route path='/update-post/:postId' element={<UpdatePost />} />
+        <Route path = '/create-question' element = {<CreateQuestion/>}/>
+        <Route path = '/edit-question/:questionId' element = {<EditQuestion/>}/>
       </Route>
       <Route path = "/post/:postSlug" element = {<PostPage />}/>
     </Routes>

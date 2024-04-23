@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
-import { set } from 'mongoose';
 
 export default function DashPosts() {
   const { currentUser } = useSelector((state) => state.user);
@@ -77,7 +76,7 @@ export default function DashPosts() {
         <>
         <Table hoverable className = 'shadow-md'>
           <Table.Head>
-            <Table.HeadCell> Date updated</Table.HeadCell>
+          <Table.HeadCell> Date updated</Table.HeadCell>
             <Table.HeadCell> Post image</Table.HeadCell>
             <Table.HeadCell> Post title</Table.HeadCell>
             <Table.HeadCell> Category</Table.HeadCell>
@@ -126,13 +125,13 @@ export default function DashPosts() {
               Show more
             </button>
           )
-        }
+        } 
         </>
       ) : (
-        <p>You have no posts yet</p>
+        <p>You have no posts yet</p> 
       )} 
       <Modal
-        show={showModal}
+        show={showModal} 
         onClose={() => setShowModal(false)}
         popup
         size='md'

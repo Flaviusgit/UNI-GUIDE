@@ -14,21 +14,24 @@ export default function Quiz() {
 
   const fetchQuestions = async () => {
     try {
-      const response = await fetch('/api/quiz/getQuestion'); 
+      const response = await fetch('/api/quiz/getRandomQuestion'); 
       if (!response.ok) {
         throw new Error('Failed to fetch questions');
       }
       const data = await response.json();
-      setQuestions(data);  
-      setCurrentQuestion(data[0]); 
+    
+      setQuestions(data.questions);  
+      setCurrentQuestion(data.questions[0]); 
       setSelectedOption('');
     } catch (error) {
       console.error('Error fetching questions:', error);
     }
   };
+  
 
   const handleStartQuiz = (event) => {
     event.preventDefault();
+    console.log('Starting quiz...');
     setStartQuiz(true);
     fetchQuestions();
   };
@@ -112,11 +115,11 @@ export default function Quiz() {
   };
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="relative w-full max-w-6xl p-8 bg-gray-800 text-white rounded-lg shadow-lg">
+      <div className="relative w-full max-w-6xl p-8 bg-green-200 dark:bg-slate-700 text-black dark:text-white rounded-lg shadow-lg">
         <div className="w-3/4 mx-auto pb-8">
           {startQuiz && currentQuestion ? (
             <div>
-              <h1 className="text-3xl text-center font-semibold border-b-2 border-green-500 pb-2">
+              <h1 className="text-3xl text-center font-semibold border-b-2 dark:border-gray-500  border-green-300 pb-2">
                 {questionIndex + 1}. {currentQuestion.text}
               </h1>
               <div className="mt-6">
@@ -139,7 +142,7 @@ export default function Quiz() {
               <div className="absolute bottom-0 left-0 mb-4 ml-4">
                 {questionIndex !== 0 ? (
                   <Button 
-                    gradientDuoTone="purpleToBlue"
+              
                     onClick={handlePreviousQuestion}
                     className="text-white font-bold py-2 px-4 rounded-lg transition duration-300"
                   >
@@ -147,7 +150,7 @@ export default function Quiz() {
                   </Button>
                 ) : (
                   <Button 
-                    gradientDuoTone="Red"
+                  gradientDuoTone="Red"
                     onClick={handleRestartQuiz}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
                   >
@@ -158,7 +161,7 @@ export default function Quiz() {
               <div className="absolute bottom-0 right-0 mb-4 mr-4">
                 {questionIndex === questions.length - 1 ? (
                   <Button
-                    gradientDuoTone="greenToBlue"
+                    gradientDuoTone="green"
                     onClick={handleSubmitQuiz}
                     className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
                   >
@@ -166,7 +169,7 @@ export default function Quiz() {
                   </Button>
                 ) : (
                   <Button
-                    gradientDuoTone="greenToBlue"
+                    gradientDuoTone="green"
                     onClick={handleNextQuestion}
                     className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
                   >
@@ -180,8 +183,14 @@ export default function Quiz() {
               {showResults ? (
                 <div className="text-center">
                   <h1 className="text-3xl font-semibold mb-4">Rezultate</h1>
-                  <p className="text-lg mb-2">
-                    Scorul tău este: {finalScore}/{questions.length}
+                  <p className="text-lg mb-2"> 
+                  {finalScore === 12 ? (
+                  `🌟Perfect, ${username}! Ai răspuns corect la toate întrebările.`
+                   ) : finalScore < 5 ? (
+                  `😢Un scor slab, ${username}! Scorul tău este: ${finalScore}/12`
+                   ) : (
+                  `👍 Felicitări, ${username} ! Scorul tău este: ${finalScore}/12`
+                  )}
                   </p>
                   <Button
                     gradientDuoTone="greenToBlue"

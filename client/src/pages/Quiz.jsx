@@ -115,7 +115,7 @@ export default function Quiz() {
   };
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="relative w-full max-w-6xl p-8 bg-green-200 dark:bg-slate-700 text-black dark:text-white rounded-lg shadow-lg">
+      <div className="relative w-full max-w-6xl p-8 bg-green-200 dark:bg-slate-800 text-black dark:text-white rounded-lg shadow-lg">
         <div className="w-3/4 mx-auto pb-8">
           {startQuiz && currentQuestion ? (
             <div>
@@ -224,7 +224,7 @@ export default function Quiz() {
                     />
                     <button 
                       type="submit"
-                      className="w-1/2 ml-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
+                      className="w-1/2 ml-2 bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition duration-100"
                     >
                       Start Quiz
                     </button>

@@ -34,6 +34,7 @@ export default function App() {
       <Route path = "/search" element = {<Search />}/>
       <Route path = "/projects" element = {<Projects />}/>
       <Route path = "/quiz" element = {<Quiz/>}/>
+      <Route path = "/contact" element = {<Contact/>}/>
       <Route element = {<PrivateRoute/>}>
         <Route path = "/dashboard" element = {<Dashboard/>}/>
       </Route>
@@ -44,8 +45,7 @@ export default function App() {
         <Route path = '/create-question' element = {<CreateQuestion/>}/>
         <Route path = '/edit-question/:questionId' element = {<EditQuestion/>}/>
       </Route>
-      <Route path = "/post/:postSlug" element = {<PostPage />}/>
-      <Route path = "/contact" element = {<Contact/>}/>
+      <Route path = "/post/:postSlug" element = {<PostPage />}/>  
     </Routes>
     <Footer/>
     </BrowserRouter>

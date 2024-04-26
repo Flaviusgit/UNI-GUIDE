@@ -114,8 +114,8 @@ export default function Quiz() {
     return score;
   };
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="relative w-full max-w-6xl p-8 bg-green-200 dark:bg-slate-800 text-black dark:text-white rounded-lg shadow-lg">
+    <div className="flex items-center justify-center min-h-screen ">
+      <div className="relative w-full max-w-6xl p-8 bg-green-200 dark:bg-slate-800 text-black dark:text-white rounded-lg shadow-lg border-2 dark:border-teal-800">
         <div className="w-3/4 mx-auto pb-8">
           {startQuiz && currentQuestion ? (
             <div>
@@ -141,40 +141,37 @@ export default function Quiz() {
               </div>
               <div className="absolute bottom-0 left-0 mb-4 ml-4">
                 {questionIndex !== 0 ? (
-                  <Button 
+                  <button 
               
                     onClick={handlePreviousQuestion}
-                    className="text-white font-bold py-2 px-4 rounded-lg transition duration-300"
+                    className="text-white font-bold py-2 px-4 rounded-lg transition duration-300 bg-blue-400 hover:bg-blue-700"
                   >
                     Înapoi
-                  </Button>
+                  </button>
                 ) : (
-                  <Button 
-                  gradientDuoTone="Red"
+                  <button 
                     onClick={handleRestartQuiz}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
                   >
                     Închide
-                  </Button>
+                  </button>
                 )}
               </div>
               <div className="absolute bottom-0 right-0 mb-4 mr-4">
                 {questionIndex === questions.length - 1 ? (
-                  <Button
-                    gradientDuoTone="green"
+                  <button
                     onClick={handleSubmitQuiz}
                     className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
                   >
                     Submit
-                  </Button>
+                  </button>
                 ) : (
-                  <Button
-                    gradientDuoTone="green"
+                  <button
                     onClick={handleNextQuestion}
                     className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
                   >
                     Înainte
-                  </Button>
+                  </button>
                 )}
               </div>
             </div>
@@ -202,7 +199,7 @@ export default function Quiz() {
                 </div>
               ) : (
                 <form onSubmit={handleStartQuiz} className={startQuiz ? "hidden" : "space-y-4"}>
-                  <h1 className="text-3xl text-center font-semibold border-b-2 border-green-500 pb-2">
+                  <h1 className="text-3xl text-center font-semibold border-b-2 border-teal-500 pb-2">
                     Quiz Application
                   </h1>
                   <ul className="list-disc text-sm space-y-2 mt-4 ml-5">
@@ -211,13 +208,13 @@ export default function Quiz() {
                     <li>Poți să navighezi prin întrebări înainte să finalizezi testul.</li>
                     <li>Rezultatele o să fie afișate la final.</li>
                   </ul>
-                  <div className="flex items-center mt-4">
+                  <div className="flex items-center mt-4 ">
                     <input 
                       type="text" 
                       id="username" 
                       name="username"
                       placeholder="Username" 
-                      className="w-1/2 p-2 text-black rounded-lg" 
+                      className="w-1/2 p-2 text-black rounded-lg dark:bg-slate-800 dark:text-slate-400" 
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                       required 

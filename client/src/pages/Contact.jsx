@@ -1,60 +1,110 @@
-import React, { useRef } from 'react';
-
-import { FaPhone, FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { FaPhone, } from 'react-icons/fa';
+import { BsFacebook, BsInstagram, BsDiscord  } from 'react-icons/bs';
 import { IoMdMail } from "react-icons/io";
-
+import { Alert } from 'flowbite-react';
 
 export default function Contact() {
-  
+  const form = useRef();
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    const { user_name, user_email, message } = e.target.elements;
+
+    if (!user_name.value.trim() || !user_email.value.trim() || !message.value.trim()) {
+      setAlertMessage('Please fill in all fields.');
+      setShowAlert(true);
+      return;
+    }
+
+    emailjs
+      .sendForm('service_t74f1ze', 'template_6qhvfrk', form.current, {
+        publicKey: 'Q2Lf68tPqKVh1HCIg',
+      })
+      .then(
+        () => {
+          setAlertMessage('Message sent successfully.');
+          setShowAlert(true);
+          e.target.reset();
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      ); 
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4   ">
-      <div className="max-w-7xl w-full  rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row border-2 border-gray-300 dark:border-teal-800 dark:b_glow">
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-7xl w-full rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row border-2 border-gray-300 dark:border-teal-800 dark:b_glow">
         <div className="md:w-1/2 p-8">
           <h1 className="text-4xl font-bold text-teal-600 mb-12">Contact Us</h1>
-          <p className="mb-12 text-6xl-nowrap ">
-          Suntem aici pentru a vă oferi toate resursele și suportul necesar pentru a naviga cu succes prin acest capitol important al vieții voastre. Pentru orice eventuale neclaritati, nu ezitați să ne contactați.
+          <p className="mb-12 text-6xl-nowrap">
+            Suntem aici pentru a vă oferi toate resursele și suportul necesar pentru a naviga cu succes prin acest capitol important al vieții voastre. Pentru orice eventuale neclarități, nu ezitați să ne contactați.
           </p>
           <div className="space-y-6">
-            <div className="flex items-center  ">
-            <FaPhone className="text-teal-600 mr-3 text-xl" />
+            <div className="flex items-center">
+              <FaPhone className="text-teal-600 mr-3 text-xl" />
               <span>+40 756 189 430</span>
             </div>
-            <div className="flex items-center ">
-            <IoMdMail  className="text-teal-600 mr-3 text-xl"/>
+            <div className="flex items-center">
+              <IoMdMail className="text-teal-600 mr-3 text-xl" />
               <span>flaviuscarpean@gmail.com</span>
             </div>
           </div>
           <div className="flex justify-start space-x-4 text-teal-600 text-2xl mt-52 gap-2">
-            <FaFacebookF />
-            <FaTwitter />
-            <FaLinkedinIn />
-            <FaInstagram />
+            <a href="https://www.facebook.com/flavius.carpean/">
+              <BsFacebook />
+            </a>
+            <a href="https://discord.gg/5YhvZskB">
+              <BsDiscord  />
+            </a>
+            <a href="https://www.instagram.com/flavius.carpean/">
+              <BsInstagram/>
+            </a>
           </div>
         </div>
         <div className="md:w-1/2 p-8 flex flex-col justify-between">
-          <div>
+          <form ref={form} onSubmit={sendEmail}>
             <input
-              className=" w-full lg:my-3 my-4 rounded-lg dark:bg-slate-800 p-4 border-2 dark:border-teal-800 dark:b_glow text-xl dark:text-slate-500"
+              className="w-full lg:my-3 my-4 rounded-lg dark:bg-slate-800 p-4 border-2 dark:border-teal-800 text-xl dark:text-slate-500"
               type="text"
+              name="user_name"
               placeholder="Your name"
             />
             <input
-              className="w-full lg:my-3 my-4 rounded-lg dark:bg-slate-800 p-4 border-2 dark:border-teal-800 dark:b_glow text-xl dark:text-slate-500"
+              className="w-full lg:my-3 my-4 rounded-lg dark:bg-slate-800 p-4 border-2 dark:border-teal-800 text-xl dark:text-slate-500"
               type="email"
+              name="user_email"
               placeholder="Email Address"
             />
             <textarea
-              className="w-full my-3 rounded-lg dark:bg-slate-800 p-4 border-2 dark:border-teal-800 dark:b_glow text-xl dark:text-slate-500"
-              name = "" id="" cols="30" rows="10"
+              className="w-full my-3 rounded-lg dark:bg-slate-800 p-4 border-2 dark:border-teal-800  text-xl dark:text-slate-500"
+              name="message"
+              id=""
+              cols="30"
+              rows="10"
               placeholder="Type your message here"
             ></textarea>
-          </div>
-          <button
-            className="neno-button shadow-xl dark:text-white border-2 dark:hover:shadow-teal-800/50   dark:border-teal-800 dark:bg-teal-800  dark:hover:bg-slate-900 hover:shadow-slate-300/50   border-slate-300 bg-slate-300  hover:bg-slate-100 rounded-lg py-4 px-8 my-6 uppercase relative overflow-hidden dark:b_glow text-text-xl text-bold mb-10"
-          >
-            SEND MESSAGE
-          </button>
+            <button
+              className="neno-button w-full shadow-xl dark:text-white border-2 dark:hover:shadow-teal-800/50 dark:border-teal-800 dark:bg-teal-800 dark:hover:bg-slate-900 hover:shadow-slate-300/50 border-slate-300 bg-slate-300 hover:bg-slate-100 rounded-lg py-4 px-8 my-6 uppercase relative overflow-hidden text-text-xl text-bold mb-10"
+              type="submit"
+            >
+              SEND MESSAGE
+            </button>
+          </form>
+          {showAlert && (
+            <Alert
+              variant="error"
+              title="Alert"
+              onClose={() => setShowAlert(false)}
+            >
+              {alertMessage}
+            </Alert>
+          )}
         </div>
       </div>
     </div>

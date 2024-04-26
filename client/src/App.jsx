@@ -18,6 +18,7 @@ import Search from './pages/Search'
 import Quiz from './pages/Quiz'
 import CreateQuestion from './pages/CreateQuestion'
 import EditQuestion from './pages/EditQuestion'
+import Contact from './pages/Contact'
 
 
 
@@ -44,6 +45,7 @@ export default function App() {
         <Route path = '/edit-question/:questionId' element = {<EditQuestion/>}/>
       </Route>
       <Route path = "/post/:postSlug" element = {<PostPage />}/>
+      <Route path = "/contact" element = {<Contact/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>

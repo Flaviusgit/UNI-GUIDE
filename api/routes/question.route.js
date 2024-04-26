@@ -3,6 +3,7 @@ import { addQuestion,  deleteQuestion,  editQuestion,  getQuestion, getRandomQue
 
 const router = express.Router();
 
+
 router.get('/getQuestion', getQuestion);
 router.post('/addQuestion', addQuestion);
 router.delete('/deleteQuestion/:questionId',deleteQuestion);

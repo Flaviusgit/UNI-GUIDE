@@ -55,7 +55,7 @@ export default function Contact() {
               <span>flaviuscarpean@gmail.com</span>
             </div>
           </div>
-          <div className="flex justify-start space-x-4 text-teal-600 text-2xl mt-52 gap-2">
+          <div className="flex justify-start space-x-4 text-teal-600 text-2xl lg:mt-36 md:mt-24 sm:mt-12 mt-8 gap-2">
             <a href="https://www.facebook.com/flavius.carpean/">
               <BsFacebook />
             </a>

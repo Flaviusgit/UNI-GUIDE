@@ -131,10 +131,11 @@ useEffect(() => {
             }
             value={formData.category}
           >
-            <option value='uncategorized'>Select a category</option>
-            <option value='Math'>Math</option>
-            <option value='C programming'>C-programming</option>
-            <option value='Javascript'>Javascript</option>
+            <option value ="uncategorized">Select a category</option>
+            <option value = "Analiza">Analiza</option>
+            <option value = "Algebra">Algebra</option>
+            <option value = "Geometrie">Geometrie</option>
+            <option value='Programare'>Programare</option>
           </Select>
         </div>
         <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>

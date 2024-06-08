@@ -2,11 +2,11 @@ import Post from '../models/post.model.js';
 import { errorHandler } from '../utils/error.js';
 
 export const create = async (req, res, next) => {
-  if (!req.user.isAdmin) {
-    return next(errorHandler(403, 'You are not allowed to create a post'));
+  if (!req.user) {
+    return next(errorHandler(403, 'Trebuie sa fii autentificat ca sa creezi o postari'));
   }
   if (!req.body.title || !req.body.content) {
-    return next(errorHandler(400, 'Please provide all required fields'));
+    return next(errorHandler(400, 'Te rugam completeaza toate campurile'));
   }
   const slug = req.body.title
     .split(' ')
@@ -73,11 +73,11 @@ export const getposts = async (req, res, next) => {
 
 export const deletepost = async (req, res, next) => {
   if (!req.user.isAdmin || req.user.id !== req.params.userId) {
-    return next(errorHandler(403, 'You are not allowed to delete this post'));
+    return next(errorHandler(403, 'Nu ai permisiunea sa stergi aceasta postare'));
   }
   try {
     await Post.findByIdAndDelete(req.params.postId);
-    res.status(200).json('The post has been deleted');
+    res.status(200).json('Postarea a fost stearsa ');
   } catch (error) {
     next(error);
   }
@@ -85,7 +85,7 @@ export const deletepost = async (req, res, next) => {
 
 export const updatepost = async (req, res, next) => {
   if (!req.user.isAdmin || req.user.id !== req.params.userId) {
-    return next(errorHandler(403, 'You are not allowed to update this post'));
+    return next(errorHandler(403, 'Nu ai permisiunea sa actualizezi aceasta postare'));
   }
   try {
     const updatedPost = await Post.findByIdAndUpdate(

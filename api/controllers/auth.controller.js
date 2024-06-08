@@ -14,7 +14,7 @@ export const signup = async (req, res, next) => {
     email === '' ||
     password === ''
   ) {
-    next(errorHandler(400, 'All fields are required'));
+    next(errorHandler(400, 'Toate campurile sunt necesare'));
   }
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
@@ -27,7 +27,7 @@ export const signup = async (req, res, next) => {
 
   try {
     await newUser.save();
-    res.json('Signup successful');
+    res.json('Inregistare cu succes');
   } catch (error) {
     next(error);
   }
@@ -43,11 +43,11 @@ export const signin = async (req, res, next) => {
   try {
     const validUser = await User.findOne({ email });
     if (!validUser) {
-      return next(errorHandler(404, 'User not found'));
+      return next(errorHandler(404, 'Utilizatorul nu a fost gasit'));
     }
     const validPassword = bcryptjs.compareSync(password, validUser.password);
     if (!validPassword) {
-      return next(errorHandler(400, 'Invalid password'));
+      return next(errorHandler(400, 'Parola invalida'));
     }
     const token = jwt.sign(
       { id: validUser._id, isAdmin: validUser.isAdmin },

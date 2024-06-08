@@ -5,10 +5,10 @@ export default function CallToAction() {
     <div className='flex flex-col sm:flex-row p-3 border border-teal-500 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center'>
         <div className="flex-1 justify-center flex flex-col">
             <h2 className='text-2xl'>
-                Want to learn more about UPT?
+            Doriți să aflați mai multe despre UPT?
             </h2>
             <p className='text-gray-500 my-2'>
-                Checkout these resources from the official website
+            Consultați aceste resurse de pe site-ul oficial
             </p>
             <Button gradientDuoTone='purpleToPink' className='rounded-tl-xl rounded-bl-none'>
                 <a href="https://www.upt.ro/" target='_blank' rel='noopener noreferrer'>

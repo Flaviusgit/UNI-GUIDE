@@ -58,12 +58,12 @@ const handleSubmit = (e) => {
     <Navbar className = 'border-b-2'>
       <Link to = "/" className = 'self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
         RoadTo
-        <span className ='px-1 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>UPT</span>
+        <span className ='px-1 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>AC</span>
       </Link> 
       <form onSubmit={handleSubmit}>
         <TextInput
         type='text'
-        placeholder='Search...'
+        placeholder='Cauta...'
         rightIcon = {AiOutlineSearch}
         className = 'hidden lg:inline'
         value={searchTerm}
@@ -95,17 +95,17 @@ const handleSubmit = (e) => {
               <span className = 'block text-sm font-medium truncate'>{currentUser.email}</span>
             </Dropdown.Header>
             <Link to = {'/dashboard?tab=profile'}>
-              <Dropdown.Item>Profle</Dropdown.Item> 
+              <Dropdown.Item>Profil</Dropdown.Item> 
             </Link>
             <Dropdown.Divider/>
-            <Dropdown.Item onClick ={handleSignout}>Sign out</Dropdown.Item>
+            <Dropdown.Item onClick ={handleSignout}>Deconectare</Dropdown.Item>
           </Dropdown>
 
         ) :
         (
           <Link to = '/sign-in'>
             <Button gradientDuoTone='purpleToBlue' outline>
-              Sign In
+              Conectare
             </Button>
           </Link>
         )
@@ -116,12 +116,12 @@ const handleSubmit = (e) => {
       <Navbar.Collapse>
   <Navbar.Link active={path === "/"} as={'div'}>
     <Link to='/'>
-      Home
+      Acasa
     </Link>
   </Navbar.Link>
   <Navbar.Link active={path === "/projects"} as={'div'}>
     <Link  to='/projects'>
-      Projects
+      Proiecte
     </Link>
   </Navbar.Link>
   <Navbar.Link active={path === "/quiz"} as={'div'}>
@@ -131,7 +131,7 @@ const handleSubmit = (e) => {
   </Navbar.Link>
   <Navbar.Link active={path === "/about"} as={'div'}>
     <Link  to='/about'>
-      About
+    Despre
     </Link>
   </Navbar.Link>
   <Navbar.Link active={path === "/contact"} as={'div'}>

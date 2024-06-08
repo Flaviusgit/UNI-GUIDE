@@ -16,7 +16,7 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      return dispatch(signInFailure('Please fill all the fields'));
+      return dispatch(signInFailure('Te rugam sa completezi toate campurile.'));
     }
     try {
       dispatch(signInStart());
@@ -51,7 +51,7 @@ export default function SignIn() {
             </span>
           </Link>
           <p className='text-sm mt-5'>
-            You can sign in with your email and password or with Google.
+            Poti sa te conectezi cu email-ul si parola sau cu Google
           </p>
         </div>
         {/* right */}
@@ -59,19 +59,19 @@ export default function SignIn() {
         <div className='flex-1'>
           <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
             <div>
-              <Label value='Your email' />
+            <Label value='Email-ul tau' />
               <TextInput
                 type='email'
-                placeholder='name@company.com'
+                placeholder='nume_prenume@gmail.com'
                 id='email'
                 onChange={handleChange}
               />
             </div>
             <div>
-              <Label value='Your password' />
+            <Label value='Parola ta' />
               <TextInput
                 type='password'
-                placeholder='*******'
+                placeholder='********'
                 id='password'
                 onChange={handleChange}
               />
@@ -84,18 +84,18 @@ export default function SignIn() {
               {loading ? (
                 <>
                   <Spinner size='sm' />
-                  <span className='pl-3'>Loading...</span>
+                  <span className='pl-3'>Se încarcă...</span>
                 </>
               ) : (
-                'Sign In'
+                'Conectare'
               )}
             </Button>
             <OAuth/>
           </form>
           <div className='flex gap-2 text-sm mt-5'>
-            <span>Dont have an account?</span>
+            <span>Nu ai un cont ?</span>
             <Link to='/sign-up' className='text-blue-500'>
-              Sign Up
+              Inregistreaza-te
             </Link>
           </div>
           {errorMessage && (

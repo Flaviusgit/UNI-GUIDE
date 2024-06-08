@@ -16,7 +16,7 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.username || !formData.email || !formData.password) {
-      return setErrorMessage('Please fill out all fields.');
+      return setErrorMessage('Te rugam sa completezi toate campurile.');
     }
     try {
       setLoading(true);
@@ -51,11 +51,11 @@ export default function SignUp() {
           <Link to='/' className='font-bold dark:text-white text-4xl'>
             RoadTo
             <span className='px-1 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
-              UPT
+              AC
             </span>
           </Link>
           <p className='text-sm mt-5'>
-            You can sign up with your email and password or with Google.
+            Poti sa te inscrii cu email-ul si parola sau cu Google.
           </p>
         </div>
         {/* right */}
@@ -63,28 +63,28 @@ export default function SignUp() {
         <div className='flex-1'>
           <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
             <div>
-              <Label value='Your username' />
+              <Label value='Nume de utilizator' />
               <TextInput
                 type='text'
-                placeholder='Username'
+                placeholder='Nume'
                 id='username'
                 onChange={handleChange}
               />
             </div>
             <div>
-              <Label value='Your email' />
+              <Label value='Email' />
               <TextInput
                 type='email'
-                placeholder='name@company.com'
+                placeholder='nume_prenume@gmail.com'
                 id='email'
                 onChange={handleChange}
               />
             </div>
             <div>
-              <Label value='Your password' />
+              <Label value='Parola' />
               <TextInput
                 type='password'
-                placeholder='Password'
+                placeholder='********'
                 id='password'
                 onChange={handleChange}
               />
@@ -97,18 +97,18 @@ export default function SignUp() {
               {loading ? (
                 <>
                   <Spinner size='sm' />
-                  <span className='pl-3'>Loading...</span>
+                  <span className='pl-3'>Se incarca</span>
                 </>
               ) : (
-                'Sign Up'
+                'Inregistreaza-te'
               )}
             </Button>
-            <OAuth/>
+            
           </form>
           <div className='flex gap-2 text-sm mt-5'>
-            <span>Have an account?</span>
+            <span>Ai deja un cont?</span>
             <Link to='/sign-in' className='text-blue-500'>
-              Sign In
+              Conecteaza-te
             </Link>
           </div>
           {errorMessage && (

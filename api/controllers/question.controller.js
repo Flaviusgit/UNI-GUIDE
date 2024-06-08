@@ -1,6 +1,7 @@
 import { errorHandler } from '../utils/error.js';
 import Question from '../models/question.model.js';
 
+
 export const getQuestion = async (req, res, next) => {
     try {
         const startIndex = parseInt(req.query.startIndex) || 0;
@@ -45,7 +46,7 @@ export const addQuestion = async (req, res, next) => {
     }
 };
 
-export const deleteQuestion = async (req, res) => {
+export const deleteQuestion = async (req, res, next) => {
    
     const { questionId } = req.params; 
 
@@ -53,12 +54,12 @@ export const deleteQuestion = async (req, res) => {
         const deletedQuestion = await Question.findByIdAndDelete(questionId);
 
         if (!deletedQuestion) {
-            return res.status(404).send({ message: 'Nu s-a găsit întrebarea cu ID-ul specificat.' });
+            return next(errorHandler(404, 'Nu s-a găsit întrebarea cu ID-ul specificat.'));
         }
-
-        res.send({ message: 'Întrebarea a fost ștearsă cu succes.' });
+    
+        res.status(200).json(' Întrebarea a fost ștearsă cu succes.')
     } catch (error) {
-        res.status(500).send({ message: 'Eroare la ștergerea întrebării', error: error.message });
+       next(error);
     }
 }
 export const editQuestion = async (req, res, next) => {
@@ -78,7 +79,7 @@ export const editQuestion = async (req, res, next) => {
         );
 
         if (!editQuestion) {
-            return res.status(404).json({ message: 'Question not found' });
+            return next(errorHandler(404, 'Intrebarea nu a fost gasita'));
         }
 
         res.status(200).json(editQuestion);

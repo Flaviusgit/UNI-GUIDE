@@ -13,33 +13,34 @@ export default function FooterCom() {
             >
               RoadTo
               <span className='px-1 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
-                UPT
+                AC
               </span>
             </Link>
           </div>
           <div className='grid grid-cols-2 gap-8 mt-4 sm:grid-cols-3 sm:gap-6'>
             <div>
-              <Footer.Title title='About' />
+              <Footer.Title title='Despre' />
               <Footer.LinkGroup col>
                 <Footer.Link
                   href='https://www.w3schools.com/html/'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  Learn HTML
+                  Invata matematica
                 </Footer.Link>
                 <Footer.Link
                   href='/about'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  RoadToUPT
+                  RoadToAC
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
-              <Footer.Title title='Follow us' />
+              <Footer.Title title='Urmareste-ne' />
               <Footer.LinkGroup col>
+                
                 <Footer.Link
                   href='https://github.com/Flaviusgit'
                   target='_blank'
@@ -60,8 +61,8 @@ export default function FooterCom() {
             <div>
               <Footer.Title title='Legal' />
               <Footer.LinkGroup col>
-                <Footer.Link href='#'>Privacy Policy</Footer.Link>
-                <Footer.Link href='#'>Terms &amp; Conditions</Footer.Link>
+                <Footer.Link href='#'>Politica de confidențialitate</Footer.Link>
+                <Footer.Link href='#'>Termeni &amp; Conditii</Footer.Link>
               </Footer.LinkGroup>
             </div>
           </div>
@@ -70,7 +71,7 @@ export default function FooterCom() {
         <div className='w-full sm:flex sm:items-center sm:justify-between'>
           <Footer.Copyright
             href='#'
-            by="RoadToUPT"
+            by="RoadToAC"
             year={new Date().getFullYear()}
           />
           <div className="flex gap-6 sm:mt-0 mt-4 sm:justify-center">

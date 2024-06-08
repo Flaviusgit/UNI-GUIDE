@@ -81,11 +81,11 @@ export default function DashQuestions() {
         
           <Table hoverable className='shadow-md'>
             <Table.Head>
-              <Table.HeadCell>Date updated</Table.HeadCell>
-              <Table.HeadCell>Question content</Table.HeadCell>
-              <Table.HeadCell>Delete</Table.HeadCell>
+              <Table.HeadCell>Date actualizatarii</Table.HeadCell>
+              <Table.HeadCell>Continutul intrebarii</Table.HeadCell>
+              <Table.HeadCell>Sterge</Table.HeadCell>
               <Table.HeadCell>
-              <span>Edit</span>
+              <span>Editeaza</span>
             </Table.HeadCell>
            
             </Table.Head>
@@ -102,12 +102,12 @@ export default function DashQuestions() {
                       }}
                       className='font-medium text-red-500 hover:underline cursor-pointer'
                     >
-                      Delete
+                      Sterge
                     </span>
                   </Table.Cell>
                      <Table.Cell>
                      <Link className = 'text-teal-500 hover:underline 'to={`/edit-question/${question._id}`}>
-                      <span>Edit</span>
+                      <span>Editeaza</span>
                       </Link>
                       </Table.Cell> 
                 </Table.Row>
@@ -121,7 +121,7 @@ export default function DashQuestions() {
           showMore && (
             
             <button onClick = {handleShowMore}className = 'w-full text-teal-500 self-center text-sm py-7'>
-              Show more
+              Mai multe
             </button>
             
             
@@ -129,7 +129,7 @@ export default function DashQuestions() {
         }
         </>
       ) : (
-        <p>You have no questions yet</p>
+        <p>Nu ai intrebari momentan</p>
       )}
       <Modal
         show={showModal}
@@ -142,14 +142,14 @@ export default function DashQuestions() {
           <div className='text-center'>
             <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
             <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
-              Are you sure you want to delete this question?
+              Esti sigur ca vrei sa stergi aceasta intrebare?
             </h3>
             <div className='flex justify-center gap-4'>
               <Button color='failure' onClick={handleDeleteQuestion}>
-                Yes, I'm sure
+              Da, sunt sigur
               </Button>
               <Button color='gray' onClick={() => setShowModal(false)}>
-                No, cancel
+                Nu, inchide
               </Button>
             </div>
           </div>

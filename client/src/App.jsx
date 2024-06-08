@@ -33,14 +33,14 @@ export default function App() {
       <Route path = "/sign-up" element = {<SignUp />}/>
       <Route path = "/search" element = {<Search />}/>
       <Route path = "/projects" element = {<Projects />}/>
-      <Route path = "/quiz" element = {<Quiz/>}/>
       <Route path = "/contact" element = {<Contact/>}/>
       <Route element = {<PrivateRoute/>}>
         <Route path = "/dashboard" element = {<Dashboard/>}/>
+        <Route path = "/quiz" element = {<Quiz/>}/>
+        <Route path = "/create-post" element = {<CreatePost/>}/>
       </Route>
       <Route path = "/sign-in" element = {<SignIn />}/>
       <Route element = {<OnlyAdminPrivateRoute/>}>
-        <Route path = "/create-post" element = {<CreatePost/>}/>
         <Route path='/update-post/:postId' element={<UpdatePost />} />
         <Route path = '/create-question' element = {<CreateQuestion/>}/>
         <Route path = '/edit-question/:questionId' element = {<EditQuestion/>}/>

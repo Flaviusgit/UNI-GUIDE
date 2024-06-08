@@ -52,7 +52,7 @@ export default function DashProfile() {
         setImageFileUploadProgress(progress.toFixed(0));
       },
       (error) => {
-        setImageFileUploadError('Could not upload image (File must be less than 2MB)');
+        setImageFileUploadError('Nu s-a putut incarca aceasta imagina(Fila trebuie sa fie mai mica de 2MB)');
         setImageFileUploadProgress(null);
         setImageFile(null);
         setImageFileUrl(null);
@@ -76,14 +76,20 @@ export default function DashProfile() {
     e.preventDefault();
     setUpdateUserError(null);
     setUpdateUserSuccess(null);
+    
+
+   
     if (Object.keys(formData).length === 0) {
-      setUpdateUserError('No changes made');
+      setUpdateUserError('Nicio schimbare efectuată');
       return;
     }
+  
+   
     if (imageFileUploading) {
-      setUpdateUserError('Please wait for image to upload');
+      setUpdateUserError('Te rugăm să aștepți ca imaginea să se încarce');
       return;
     }
+  
     try {
       dispatch(updateStart());
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
@@ -99,13 +105,14 @@ export default function DashProfile() {
         setUpdateUserError(data.message);
       } else {
         dispatch(updateSuccess(data));
-        setUpdateUserSuccess("User's profile updated successfully");
+        setUpdateUserSuccess("Datele utilizatorului au fost schimbate cu succes");
       }
     } catch (error) {
       dispatch(updateFailure(error.message));
       setUpdateUserError(error.message);
     }
   };
+  
 
   const handleDeleteUser = async () => {
     setShowModal(false);
@@ -174,11 +181,11 @@ export default function DashProfile() {
         </div>
         {imageFileUploadError && <Alert color={'failure'}>{imageFileUploadError}</Alert>}
 
-        <TextInput type='text' id='username' placeholder='username' defaultValue={currentUser.username} onChange={handleChange} />
+        <TextInput type='text' id='username' placeholder='Nume de utilizator' defaultValue={currentUser.username} onChange={handleChange} />
         <TextInput type='email' id='email' placeholder='email' defaultValue={currentUser.email} onChange={handleChange} />
-        <TextInput type='password' id='password' placeholder='password' onChange={handleChange} />
+        <TextInput type='password' id='password' placeholder='parola' onChange={handleChange} />
         <Button type='submit' gradientDuoTone='purpleToBlue' outline disabled={loading || imageFileUploading}>
-          {loading ? 'Loading...' : 'Update'}
+          {loading ? 'Se incarca...' : 'Actualizeaza'}
         </Button>
         
           <Link to={'/create-post'}>
@@ -187,7 +194,7 @@ export default function DashProfile() {
               gradientDuoTone='purpleToPink'
               className='w-full'
             >
-              Create a post
+              Creaza o postare
             </Button>
           </Link>
         
@@ -198,15 +205,15 @@ export default function DashProfile() {
           gradientDuoTone='purpleToBlue'
           className='w-full'
         >
-          Add a question
+          Adauga o intrebare 
         </Button>
         </Link>
         )}
        
       </form>
       <div className="text-red-500 flex justify-between mt-5">
-        <span onClick={() => setShowModal(true)} className='cursor-pointer'>Delete Account</span>
-        <span onClick={handleSignout} className='cursor-pointer'>Sign Out</span>
+        <span onClick={() => setShowModal(true)} className='cursor-pointer'>Sterge contul</span>
+        <span onClick={handleSignout} className='cursor-pointer'>Deconectare</span>
       </div>
       {updateUserSuccess && (
         <Alert color='success' className='mt-5'>
@@ -234,14 +241,14 @@ export default function DashProfile() {
           <div className='text-center'>
             <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
             <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
-              Are you sure you want to delete your account?
+              Esti sigur ca vrei sa stergi acest cont?
             </h3>
             <div className='flex justify-center gap-4'>
               <Button color='failure' onClick={handleDeleteUser}>
-                Yes, I'm sure
+               Da, sunt sigur
               </Button>
               <Button color='gray' onClick={() => setShowModal(false)}>
-                No, cancel
+                Nu, inchide
               </Button>
             </div>
           </div>

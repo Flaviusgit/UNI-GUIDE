@@ -100,10 +100,11 @@ export default function CreatePost() {
         <Select
         onChange = {(e) => setFormData({...formData, category:e.target.value})}
         >
-            <option value ="uncategorized">Select a category</option>
-            <option value = "Math">Math</option>
-            <option value = "C-programming">C-programming</option>
-            <option value = "Javascript">Javascript</option>
+            <option value ="uncategorized">Selecteaza o categorie</option>
+            <option value = "Analiza">Analiza</option>
+            <option value = "Algebra">Algebra</option>
+            <option value = "Geometrie">Geometrie</option>
+            <option value='Programare'>Programare</option>
         </Select>
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
@@ -146,7 +147,7 @@ export default function CreatePost() {
         }}
         />
         <Button type = 'submit' gradientDuoTone='purpleToPink'>
-            Publish
+            Publica
         </Button>
         {publishError && (
           <Alert className='mt-5' color='failure'>

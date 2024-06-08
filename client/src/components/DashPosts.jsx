@@ -76,13 +76,13 @@ export default function DashPosts() {
         <>
         <Table hoverable className = 'shadow-md'>
           <Table.Head>
-          <Table.HeadCell> Date updated</Table.HeadCell>
-            <Table.HeadCell> Post image</Table.HeadCell>
-            <Table.HeadCell> Post title</Table.HeadCell>
-            <Table.HeadCell> Category</Table.HeadCell>
-            <Table.HeadCell> Delete</Table.HeadCell>
+          <Table.HeadCell> Date actualizarii</Table.HeadCell>
+            <Table.HeadCell> Imaginea postarii</Table.HeadCell>
+            <Table.HeadCell> Titul postarii</Table.HeadCell>
+            <Table.HeadCell> Categoria</Table.HeadCell>
+            <Table.HeadCell> Sterge</Table.HeadCell>
             <Table.HeadCell>
-              <span>Edit</span>
+              <span>Editeaza</span>
             </Table.HeadCell>
           </Table.Head>
           {userPosts.map((post) => (
@@ -122,7 +122,7 @@ export default function DashPosts() {
         {
           showMore && (
             <button onClick = {handleShowMore}className = 'w-full text-teal-500 self-center text-sm py-7'>
-              Show more
+              Mai multe
             </button>
           )
         } 
@@ -141,14 +141,14 @@ export default function DashPosts() {
           <div className='text-center'>
             <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
             <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
-              Are you sure you want to delete this post?
+              Esti sigur ca vrei sa stergi aceasta postare?
             </h3>
             <div className='flex justify-center gap-4'>
               <Button color='failure' onClick={handleDeletePost}>
-                Yes, I'm sure
+              Da, sunt sigur
               </Button>
               <Button color='gray' onClick={() => setShowModal(false)}>
-                No, cancel
+                Nu, inchide
               </Button>
             </div>
           </div>

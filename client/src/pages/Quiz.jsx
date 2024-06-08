@@ -200,7 +200,7 @@ export default function Quiz() {
               ) : (
                 <form onSubmit={handleStartQuiz} className={startQuiz ? "hidden" : "space-y-4"}>
                   <h1 className="text-3xl text-center font-semibold border-b-2 border-teal-500 pb-2">
-                    Quiz Application
+                    Quiz de admitere
                   </h1>
                   <ul className="list-disc text-sm space-y-2 mt-4 ml-5">
                     <li>Testul conține 12 întrebări.</li>

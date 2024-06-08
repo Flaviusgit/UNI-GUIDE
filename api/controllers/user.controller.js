@@ -8,29 +8,29 @@ export const test = (req, res) => {
 
 export const updateUser = async (req, res, next) => {
   if (req.user.id !== req.params.userId) {
-    return next(errorHandler(403, 'You are not allowed to update this user'));
+    return next(errorHandler(403, 'Nu ai permisiunea sa actualizezi datele acestui utilizator'));
   }
   if (req.body.password) {
     if (req.body.password.length < 6) {
-      return next(errorHandler(400, 'Password must be at least 6 characters'));
+      return next(errorHandler(400, 'Parola trebuie sa contina minim 6 caractere'));
     }
     req.body.password = bcryptjs.hashSync(req.body.password, 10);
   }
   if (req.body.username) {
     if (req.body.username.length < 7 || req.body.username.length > 20) {
       return next(
-        errorHandler(400, 'Username must be between 7 and 20 characters')
+        errorHandler(400, 'Numele de utilizator trebuie sa aiba intr 7 si 20 caractere')
       );
     }
     if (req.body.username.includes(' ')) {
-      return next(errorHandler(400, 'Username cannot contain spaces'));
+      return next(errorHandler(400, 'Numele de utilizator nu poate sa contina spatii'));
     }
     if (req.body.username !== req.body.username.toLowerCase()) {
-      return next(errorHandler(400, 'Username must be lowercase'));
+      return next(errorHandler(400, 'Numele de utilizator trebuie sa fie format din litere mici'));
     }
     if (!req.body.username.match(/^[a-zA-Z0-9]+$/)) {
       return next(
-        errorHandler(400, 'Username can only contain letters and numbers')
+        errorHandler(400, 'Numele de utilizator poate contine doar litere si cifre')
       );
     }
   }
@@ -57,11 +57,11 @@ export const updateUser = async (req, res, next) => {
 
 export const deleteUser = async(req, res, next) => {
   if(!req.user.isAdmin && req.user.id !== req.params.userId){
-    return next(errorHandler(403, 'You are not allowed to delete this user'));
+    return next(errorHandler(403, 'Nu ai permisiunea sa stergi acest utilizator'));
   }
   try {
     await User.findByIdAndDelete(req.params.userId);
-    res.status(200).json('User has been deleted')
+    res.status(200).json('Utilizatorul a fost sters')
   } catch (error) {
     next(error);
   }
@@ -69,7 +69,7 @@ export const deleteUser = async(req, res, next) => {
 
 export const signout = (req, res, next) =>{
   try {
-    res.clearCookie('acces_token').status(200).json("User has been signed out");
+    res.clearCookie('acces_token').status(200).json("Utilizatorul a fost deconectat");
   } catch (error) {
     next(error);
   }
@@ -78,7 +78,7 @@ export const signout = (req, res, next) =>{
 
 export const getUsers = async (req, res, next) => {
   if (!req.user.isAdmin) {
-    return next(errorHandler(403, 'You are not allowed to see all users'));
+    return next(errorHandler(403, 'Nu ai permisiunea sa vezi toti utilizatorii'));
   }
   try {
     const startIndex = parseInt(req.query.startIndex) || 0;
@@ -121,7 +121,7 @@ export const getUser = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.userId);
     if (!user) {
-      return next(errorHandler(404, 'User not found'));
+      return next(errorHandler(404, 'Utilizatorul nu a fost gasit'));
     }
     const { password, ...rest } = user._doc;
     res.status(200).json(rest);
@@ -129,3 +129,6 @@ export const getUser = async (req, res, next) => {
     next(error);
   }
 };
+
+
+

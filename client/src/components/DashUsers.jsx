@@ -69,12 +69,12 @@ export default function DashUsers() {
         <>
           <Table hoverable className='shadow-md'>
             <Table.Head>
-              <Table.HeadCell>Date created</Table.HeadCell>
-              <Table.HeadCell>User image</Table.HeadCell>
-              <Table.HeadCell>Username</Table.HeadCell>
+              <Table.HeadCell>Data crearii </Table.HeadCell>
+              <Table.HeadCell>Imaginea utilizatorului</Table.HeadCell>
+              <Table.HeadCell>Nume de utilizator</Table.HeadCell>
               <Table.HeadCell>Email</Table.HeadCell>
               <Table.HeadCell>Admin</Table.HeadCell>
-              <Table.HeadCell>Delete</Table.HeadCell>
+              <Table.HeadCell>Sterge</Table.HeadCell>
             </Table.Head>
             {users.map((user) => (
               <Table.Body className='divide-y' key={user._id}>
@@ -106,7 +106,7 @@ export default function DashUsers() {
                       }}
                       className='font-medium text-red-500 hover:underline cursor-pointer'
                     >
-                      Delete
+                      Sterge
                     </span>
                   </Table.Cell>
                 </Table.Row>
@@ -118,12 +118,12 @@ export default function DashUsers() {
               onClick={handleShowMore}
               className='w-full text-teal-500 self-center text-sm py-7'
             >
-              Show more
+              Mai mult
             </button> 
           )} 
         </>
       ) : ( 
-        <p>You have no users yet!</p>
+        <p>Nu ai niciun utilizator moment!</p>
       )}
       <Modal
         show={showModal}
@@ -136,14 +136,14 @@ export default function DashUsers() {
           <div className='text-center'>
             <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
             <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
-              Are you sure you want to delete this user?
+              Esti sigur ca vrei sa stergi acest utilizator?
             </h3>
             <div className='flex justify-center gap-4'>
               <Button color='failure' onClick={handleDeleteUser}>
-                Yes, I'm sure
+              Da, sunt sigur
               </Button>
               <Button color='gray' onClick={() => setShowModal(false)}>
-                No, cancel
+                Nu, inchide
               </Button>
             </div>
           </div>

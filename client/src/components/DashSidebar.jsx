@@ -55,8 +55,8 @@ export default function DashSidebar() {
             </Link>
           )}
                 <Link to = '/dashboard?tab=profile'>
-                <Sidebar.Item active = {tab === 'profile'} icon = {HiUser} label = {currentUser.isAdmin ? 'Admin' : 'User'} labelColor = 'dark' as='div'>
-                    Profile
+                <Sidebar.Item active = {tab === 'profile'} icon = {HiUser} label = {currentUser.isAdmin ? 'Admin' : 'Utilizator'} labelColor = 'dark' as='div'>
+                    Profil
                 </Sidebar.Item>
                 </Link>
                 {currentUser.isAdmin && (
@@ -66,7 +66,7 @@ export default function DashSidebar() {
                 icon={HiDocumentText}
                 as='div'
               >
-                Posts
+                Postari
               </Sidebar.Item>
               </Link>
               )}
@@ -78,7 +78,7 @@ export default function DashSidebar() {
                   icon = {HiOutlineUserGroup}
                   as = 'div'
                   >
-                    Users
+                    Utilizatori
                   </Sidebar.Item>
                 </Link>
                 <Link to = '/dashboard?tab=comments'>
@@ -87,7 +87,7 @@ export default function DashSidebar() {
                   icon = {HiAnnotation}
                   as = 'div'
                   >
-                    Comments
+                    Commentarii
                   </Sidebar.Item>
                 </Link>
                 <Link to = '/dashboard?tab=questions'>
@@ -96,7 +96,7 @@ export default function DashSidebar() {
                   icon = {HiOutlineQuestionMarkCircle}
                   as = 'div'
                   >
-                    Questions
+                    Intrebari
                   </Sidebar.Item>
                 </Link>
                 </>
@@ -104,7 +104,7 @@ export default function DashSidebar() {
               )
               }
                 <Sidebar.Item  icon = {HiArrowSmRight} className = 'cursor-pointer' onClick={handleSignout}>
-                    Sign Out
+                Deconectare
                 </Sidebar.Item>
             </Sidebar.ItemGroup>
         </Sidebar.Items>

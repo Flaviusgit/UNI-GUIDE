@@ -52,7 +52,7 @@ useEffect(() => {
   const handleUpdloadImage = async () => {
     try {
       if (!file) {
-        setImageUploadError('Please select an image');
+        setImageUploadError('Te rugam selecteaza o imagine');
         return;
       }
       setImageUploadError(null);
@@ -68,7 +68,7 @@ useEffect(() => {
           setImageUploadProgress(progress.toFixed(0));
         },
         (error) => {
-          setImageUploadError('Image upload failed');
+          setImageUploadError('Incarcarea imaginii a esuat');
           setImageUploadProgress(null);
         },
         () => {
@@ -80,7 +80,7 @@ useEffect(() => {
         }
       );
     } catch (error) {
-      setImageUploadError('Image upload failed');
+      setImageUploadError('Incarcarea imaginii a esuat');
       setImageUploadProgress(null);
       console.log(error);
     }
@@ -106,17 +106,17 @@ useEffect(() => {
         navigate(`/post/${data.slug}`);
       }
     } catch (error) {
-      setPublishError('Something went wrong');
+      setPublishError('Ceva nu a mers');
     }
   };
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
-      <h1 className='text-center text-3xl my-7 font-semibold'>Update post</h1>
+      <h1 className='text-center text-3xl my-7 font-semibold'>Editeaza postarea</h1>
       <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-4 sm:flex-row justify-between'>
           <TextInput
             type='text'
-            placeholder='Title'
+            placeholder='Titlu'
             required
             id='title'
             className='flex-1'
@@ -160,7 +160,7 @@ useEffect(() => {
                 />
               </div>
             ) : (
-              'Upload Image'
+              'Incarca o imagine'
             )}
           </Button>
         </div>
@@ -175,7 +175,7 @@ useEffect(() => {
         <ReactQuill
           theme='snow'
           value={formData.content}
-          placeholder='Write something...'
+          placeholder='Scrie...'
           className='h-72 mb-12'
           required
           onChange={(value) => {
@@ -183,7 +183,7 @@ useEffect(() => {
           }}
         />
         <Button type='submit' gradientDuoTone='purpleToPink'>
-          Update post
+          Editeaza postarea
         </Button>
         {publishError && (
           <Alert className='mt-5' color='failure'>

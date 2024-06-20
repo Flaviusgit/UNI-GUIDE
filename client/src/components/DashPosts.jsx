@@ -128,7 +128,7 @@ export default function DashPosts() {
         } 
         </>
       ) : (
-        <p>You have no posts yet</p> 
+        <p>Nu exista postari momentant</p> 
       )} 
       <Modal
         show={showModal} 

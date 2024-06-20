@@ -1,10 +1,10 @@
 import React from 'react';
 import Project1 from "../assets/2poza.png";
-import Project2 from "../assets/3poza.png";
+import Project2 from "../assets/restaurantePagina.png";
 import Project3 from "../assets/4poza.png";
-import Project4 from "../assets/3poza.png";
-import Project5 from "../assets/3poza.png"; 
-import Project6 from "../assets/2poza.png"; 
+import Project4 from "../assets/paginaGestionare.png";
+import Project5 from "../assets/prezentarePagina.png"; 
+import Project6 from "../assets/3poza.png"; 
 
 const projectData = [
   {
@@ -15,38 +15,37 @@ const projectData = [
   },
   {
     imgSrc: Project2,
-    title: "Pagină de prezentare pentru magazin de mobilă",
-    description: "Aplicație cu design responsiv HTML/CSS pentru magazin online de mobilă de designer. HTML5, CSS3 (SCSS)",
-    siteLink: "https://myblog-l5gg.onrender.com",
+    title: "Site web prentru prezentarea restaurantelor",
+    description: "Aplicație cu design responsiv pentru prezentarea restaurantelor din timisoara si a evenimentelor",
+    siteLink: "https://zilesinopti.ro/evenimente-timisoara/",
 
   },
   {
     imgSrc: Project3,
     title: "Pagină de prezentare pentru dezvoltatori front-end",
-    description: "Aplicație cu design responsiv HTML/CSS pentru pagina de prezentare a unui dezvoltator front-end. HTML5, CSS3 (SCSS)",
-    siteLink: "https://myblog-l5gg.onrender.com",
+    description: "Aplicație cu design responsiv HTML/CSS pentru pagina de prezentare a unui dezvoltator front-end.",
+    siteLink: "https://webwave.ro/",
 
   },
   {
     imgSrc: Project4,
-    title: "Aplicatie web pentru crearea propriului site",
-    description: "Aplicație cu design responsiv HTML/CSS pentru redesign-ul site-ului tau. HTML5, CSS3 (SCSS)",
-    siteLink: "https://myblog-l5gg.onrender.com",
+    title: "Aplicatie web pentru gestionarea banilor",
+    description: "Aplicație dezvoltata cu React, Node.js, Express.js, PostgreSQL pentru a ajuta persoanele in gestionarea banilor",
+    siteLink: "https://banometru.ro/",
 
   },
   {
     imgSrc: Project5,
     title: "Pagină de prezentare pentru afaceri noi",
     description: "Aplicație cu design interactiv UI cu React, demonstrând gestionarea dinamică a datelor și managementul stărilor.",
-    siteLink: "https://myblog-l5gg.onrender.com",
+    siteLink: "https://tagdiv.ro/servicii/web-design-frontend-development-servicii/?utm_source=GA&utm_medium=ro_final&utm_campaign=CG_searchro&gad_source=1&gclid=Cj0KCQjwpZWzBhC0ARIsACvjWROGRNQ7Gt05zO7_BLmrhTJbf80hsEJvL5rhaNjdhIIEBFbeBLsMdh8aAkzzEALw_wcB",
 
   },
   {
     imgSrc: Project6,
     title: "Aplicație educațională interactivă",
-    description: "Aplicație educațională captivantă dezvoltată cu Vue.js, incluzând quiz-uri și module de învățare interactivă.",
-    siteLink: "https://myblog-l5gg.onrender.com",
-
+    description: "Aplicație educațională captivantă dezvoltată cu Vue.js, ce include printre altele quiz-uri și metode noi de învățare .",
+    siteLink: "https://www.kialo-edu.com/",
   }
 ];
 
@@ -54,13 +53,13 @@ export default function Projects() {
   return (
     <div className="container m-auto px-4 sm:py-12">
       <div className="text-center">
-        <h2 className="text-3xl font-bold ">Proiecte de Licență</h2>
+        <h2 className="text-3xl font-bold ">Proiecte realizabile</h2>
         <p className="dark:text-gray-500 mt-2 text-xl">
-          Mai jos puteți observa o serie de proiecte de licență realizate de absolvenții facultății de Automatică și Calculatoare, demonstrând potențialul pe care îl puteți atinge în urma finalizării studiilor acestei facultăți. Explorând proiectele prezentate puteți descoperi de ce facultatea noastră este cea mai bună alegere pentru performanță în domeniul tehnologiei.
+          Mai jos puteți observa o serie de proiecte ce sunt sau pot fi realizate de absolvenții facultății de Automatică și Calculatoare, demonstrând potențialul pe care îl puteți atinge în urma finalizării studiilor acestei facultăți. Explorând proiectele prezentate puteți descoperi de ce facultatea noastră este cea mai bună alegere pentru performanță în domeniul tehnologiei.
         </p>
       </div>
       <div className="flex flex-col sm:flex-row gap-10 mt-11">
-        <div className="border border-gray-300 dark:border-teal-800 dark:b_glowrounded-md p-5 flex-1">
+        <div className="border border-gray-300 dark:border-teal-800 dark:b_glow rounded-md p-5 flex-1">
           <img src={projectData[0].imgSrc} className="w-full h-auto" alt="Project 1"/>
           <h3 className="text-2xl font-semibold mt-8">{projectData[0].title}</h3>
           <p className="text-gray-400 text-sm mt-2">{projectData[0].description}</p>
@@ -71,7 +70,7 @@ export default function Projects() {
             
           </div>
         </div>
-        <div className="border border-gray-300 dark:border-teal-800 dark:b_glowrounded-md p-5 flex-1">
+        <div className="border border-gray-300 dark:border-teal-800 dark:b_glow rounded-md p-5 flex-1">
           <img src={projectData[1].imgSrc} className="w-full h-auto" alt="Project 2"/>
           <h3 className="text-2xl font-semibold mt-8">{projectData[1].title}</h3>
           <p className="text-gray-400 text-sm mt-2">{projectData[1].description}</p>
@@ -84,7 +83,7 @@ export default function Projects() {
         </div>
       </div>
       <div className="flex flex-col sm:flex-row gap-10 mt-11">
-        <div className="border border-gray-300 dark:border-teal-800 dark:b_glowrounded-md p-5 flex-1">
+        <div className="border border-gray-300 dark:border-teal-800 dark:b_glow rounded-md p-5 flex-1">
           <img src={projectData[2].imgSrc} className="w-full h-auto" alt="Project 3"/>
           <h3 className="text-2xl font-semibold mt-8">{projectData[2].title}</h3>
           <p className="text-gray-400 text-sm mt-2">{projectData[2].description}</p>

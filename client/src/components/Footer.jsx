@@ -19,21 +19,21 @@ export default function FooterCom() {
           </div>
           <div className='grid grid-cols-2 gap-8 mt-4 sm:grid-cols-3 sm:gap-6'>
             <div>
-              <Footer.Title title='Despre' />
+              <Footer.Title title='Informatii ajutatoare' />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href='https://www.w3schools.com/html/'
+                  href='https://admitere.ac.upt.ro/licenta/admitere/pregatire-pentru-examenul-de-admitere/'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  Invata matematica
+                  Pregatire pentru admitere
                 </Footer.Link>
                 <Footer.Link
-                  href='/about'
+                  href='https://ac.upt.ro/'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  RoadToAC
+                  Site-ul AC
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>

@@ -187,7 +187,6 @@ export default function DashProfile() {
         <Button type='submit' gradientDuoTone='purpleToBlue' outline disabled={loading || imageFileUploading}>
           {loading ? 'Se incarca...' : 'Actualizeaza'}
         </Button>
-        
           <Link to={'/create-post'}>
             <Button
               type='button'

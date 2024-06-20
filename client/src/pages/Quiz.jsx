@@ -213,7 +213,7 @@ export default function Quiz() {
                       type="text" 
                       id="username" 
                       name="username"
-                      placeholder="Username" 
+                      placeholder="Nume" 
                       className="w-1/2 p-2 text-black rounded-lg dark:bg-slate-800 dark:text-slate-400" 
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}

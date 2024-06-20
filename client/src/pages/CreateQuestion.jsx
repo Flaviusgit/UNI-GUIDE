@@ -3,7 +3,7 @@ import { Button, Textarea } from 'flowbite-react';
 
 export default function CreateQuestion() {
     const [question, setQuestion] = useState('');
-    const [options, setOptions] = useState(['', '', '', '']);
+    const [options, setOptions] = useState(['', '', '', '', '', '']);
     const [correctOption, setCorrectOption] = useState('');
 
     const handleSubmit = async (event) => {
@@ -28,14 +28,20 @@ export default function CreateQuestion() {
     };
 
     const handleOptionChange = (index, value) => {
-        const newOptions = [...options];
-        newOptions[index] = value;
-        setOptions(newOptions);
+        if (index >= options.length) {
+            const newOptions = [...options, '']; 
+            newOptions[index] = value;
+            setOptions(newOptions);
+        } else {
+            const newOptions = [...options];
+            newOptions[index] = value;
+            setOptions(newOptions);
+        }
     };
 
     const resetForm = () => {
         setQuestion('');
-        setOptions(['', '', '', '']);
+        setOptions(['', '', '', '', '', '']);
         setCorrectOption('');
     };
 
@@ -52,7 +58,7 @@ export default function CreateQuestion() {
                     ></Textarea>
                 </div>
                 <div className="grid grid-cols-2 gap-6 w-full ">
-                    {options.map((option, index) => (
+                    {options.slice(0, 4).map((option, index) => (
                         <input
                             key={index}
                             type="text"
@@ -60,6 +66,16 @@ export default function CreateQuestion() {
                             onChange={(e) => handleOptionChange(index, e.target.value)}
                             className="input input-bordered w-full focus:border-blue-500 focus:ring-1 focus:ring-blue-500 dark:bg-gray-900"
                             placeholder={`Opțiunea ${index + 1}`}
+                        />
+                    ))}
+                    {options.slice(4).map((option, index) => (
+                        <input
+                            key={index + 4}
+                            type="text"
+                            value={option}
+                            onChange={(e) => handleOptionChange(index + 4, e.target.value)}
+                            className="input input-bordered w-full focus:border-blue-500 focus:ring-1 focus:ring-blue-500 dark:bg-gray-900"
+                            placeholder={`Opțiunea ${index + 5}`}
                         />
                     ))}
                 </div>

@@ -35,10 +35,13 @@ export default function Search() {
         category: categoryFromUrl,
       });
     }
-
+    
+    
     const fetchPosts = async () => {
       setLoading(true);
       const searchQuery = urlParams.toString();
+    
+      
       const res = await fetch(`/api/post/getposts?${searchQuery}`);
       if (!res.ok) {
         setLoading(false);
@@ -56,21 +59,23 @@ export default function Search() {
       }
     };
     fetchPosts();
+    
   }, [location.search]);
 
-  const handleChange = (e) => {
-    if (e.target.id === 'searchTerm') {
-      setSidebarData({ ...sidebarData, searchTerm: e.target.value });
-    }
-    if (e.target.id === 'sort') {
-      const order = e.target.value || 'desc';
-      setSidebarData({ ...sidebarData, sort: order });
-    }
-    if (e.target.id === 'category') {
-      const category = e.target.value || 'uncategorized';
-      setSidebarData({ ...sidebarData, category });
-    }
-  };
+const handleChange = (e) => {
+  if (e.target.id === 'searchTerm') {
+    setSidebarData({ ...sidebarData, searchTerm: e.target.value });
+  }
+  if (e.target.id === 'sort') {
+    const order = e.target.value || 'desc';
+    setSidebarData({ ...sidebarData, sort: order }); 
+  }
+  if (e.target.id === 'category') {
+    const category = e.target.value || 'uncategorized';
+    setSidebarData({ ...sidebarData, category });
+  }
+};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

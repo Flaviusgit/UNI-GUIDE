@@ -86,12 +86,12 @@ export default function CreatePost() {
     }
   };
   return (<div className = 'p-3 max-w-3xl mx-auto min-h-screen'>
-  <h1 className = 'text-center text-3xl my-7 font-semibold'>Create a post</h1>
+  <h1 className = 'text-center text-3xl my-7 font-semibold'>Creaza o postare</h1>
   <form className = 'flex flex-col gap-4' onSubmit = {handleSubmit}>
     <div className="flex flex-col gap-4 sm:flex-row justify-between">
         <TextInput 
         type = 'text' 
-        placeholder = 'Title' 
+        placeholder = 'Titlu' 
         required 
         id='title' 
         className = 'flex-1'
@@ -125,7 +125,7 @@ export default function CreatePost() {
                 />
               </div>
             ) : (
-              'Upload Image'
+              'Incarca o imagine'
             )}
           </Button>
         </div>
@@ -139,7 +139,7 @@ export default function CreatePost() {
         )}     
         <ReactQuill 
         theme = "snow" 
-        placeholder = 'Write/ something...' 
+        placeholder = 'Scrie...' 
         className = 'h-72 mb-12' 
         required
         onChange = {

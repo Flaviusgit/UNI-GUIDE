@@ -3,12 +3,15 @@ import Question from '../models/question.model.js';
 
 
 export const getQuestion = async (req, res, next) => {
+    if (!req.user || !req.user.isAdmin) {
+        return next(errorHandler(403, 'Acces interzis. Trebuie să fii administrator'));
+    }
+    
     try {
         const startIndex = parseInt(req.query.startIndex) || 0;
         const limit = parseInt(req.query.limit) || 9;
         const sortDirection = req.query.sort === 'desc' ? -1 : 1;
-        const questionId = req.query.questionId;
-
+        
         const questions = await Question.find(
             req.query.questionId && { _id : req.query.questionId } 
         )
@@ -36,6 +39,9 @@ export const getRandomQuestion = async (req, res, next) => {
 
 
 export const addQuestion = async (req, res, next) => {
+    if (!req.user || !req.user.isAdmin) {
+        return next(errorHandler(403, 'Acces interzis. Trebuie să fii administrator'));
+    }
     
     try {
         const { text, options, correctOption } = req.body;
@@ -47,7 +53,10 @@ export const addQuestion = async (req, res, next) => {
 };
 
 export const deleteQuestion = async (req, res, next) => {
-   
+    if (!req.user || !req.user.isAdmin) {
+        return next(errorHandler(403, 'Acces interzis. Trebuie să fii administrator'));
+    }
+    
     const { questionId } = req.params; 
 
     try {
@@ -63,8 +72,10 @@ export const deleteQuestion = async (req, res, next) => {
     }
 }
 export const editQuestion = async (req, res, next) => {
-   
-
+    if (!req.user || !req.user.isAdmin) {
+        return next(errorHandler(403, 'Acces interzis. Trebuie să fii administrator'));
+    }
+    
     try {
         const editQuestion = await Question.findByIdAndUpdate(
             req.params.questionId, 
